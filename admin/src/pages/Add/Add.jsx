@@ -8,9 +8,8 @@ const Add = () => {
       <form className='flex-col'>
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
-          <input type="file" name="image" id="image"/>
           <label htmlFor="image">
-            <img src={assets.upload_area} alt=""/> 
+            <img src={assets.upload_area} alt="upload"/> 
           </label>
           <input type="file" id="image" hidden required/>
         </div>
