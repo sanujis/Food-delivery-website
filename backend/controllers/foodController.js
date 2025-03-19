@@ -21,7 +21,7 @@ try{
     res.json({status:true ,message: "Food item added successfully"})
 }
 catch(error){
-    console.log(error)
+    console.error(error)
     res.json({status:false ,message: "Error"})
 }
 }
