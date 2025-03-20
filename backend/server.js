@@ -3,6 +3,8 @@ import cors from "cors";
 import mongoose from "mongoose";
 import foodRouter from "./routes/foodRoute.js";
 import dotenv from "dotenv";
+import userRouter from "./routes/userRoute.js";
+import 'dotenv/config';
 
 // Load environment variables
 dotenv.config();
@@ -10,7 +12,6 @@ dotenv.config();
 //app config
 const app = express()
 const port= process.env.PORT || 4000
-const cors = require('cors')
 
 //middleware
 app.use(express.json())
@@ -36,6 +37,7 @@ connectDB()
 //api endpoints
 app.use("/api/food",foodRouter)
 app.use("/images", express.static("uploads"))
+app.use("/api/user", userRouter);
 
 app.get("/", (req, res) => {
     res.send("API working")
