@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
 import { useEffect } from 'react';
 
@@ -8,6 +9,9 @@ const StoreContextProvider = (props) => {
   const url = "http://localhost:4000";
   const [token, setToken] = useState("");
   const [food_list, setFoodList] = useState([]);
+
+  console.log("Sfood list", food_list);
+  console.log("Sfood list", food_list.length);
 
   const addToCart = (itemId) => {
     setCartItems((prev) => ({
@@ -39,13 +43,26 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      setToken(token);
+  const fetchFoodList = async () => {
+    try {
+      const response = await axios.get(url + "/api/food/list");
+      const data = response.data;
+      setFoodList(data.data);
+      console.log("Food list fetched successfully:", data.data);
+    } catch (error) {
+      console.error("Error fetching food list:", error);
     }
-  }
-  , []);
+  };
+
+  useEffect(() => {
+    async function loadData() {
+      await fetchFoodList();
+      if (localStorage.getItem("token")) {
+        setToken(localStorage.getItem("token"));
+      }
+    }
+    loadData();
+  }, []);
 
   return (
     <StoreContext.Provider value={{ cartItems, addToCart, removeFromCart, food_list, getTotalCartAmount, url , token, setToken }}>
