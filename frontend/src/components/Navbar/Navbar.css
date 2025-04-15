@@ -1,18 +1,21 @@
-.navbar{
-    padding: 20px 0px;
+.navbar {
+    padding: 10px 0; /* Smaller padding */
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin-top: -85px;
+    align-items: center; /* Ensures vertical centering */
+    background-color: #f6e3de;
     position: relative;
     z-index: 1;
+    height: 90px;
+    margin-top: -30px;
 }
 
-.navbar .logo{
-    width: 200px;
+.navbar .logo {
+    width: 150px;
+    height: 200px; /* Let it scale naturally */
     cursor: pointer;
     transition: 0.3s;
-    height: 200px;
+    object-fit: contain; /* Keeps aspect ratio */
 }
 
 .navbar-menu{
@@ -21,15 +24,26 @@
     gap: 70px;
     color: #49557e;
     font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.navbar-menu a:hover {
+    color: tomato; /* Change the text color on hover */
+    border-bottom: 2px solid tomato; /* Add a bottom border for highlighting */
+    transition: 0.3s ease; /* Smooth transition effect */
 }
 
 .navbar-right{
     display: flex;
     align-items: center;
     gap: 40px;
+    color: #49557e;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-.navbar-button{
+.navbar-right button{
     background: transparent;
     font-size: 16px;
     color:#49557e;
@@ -38,6 +52,10 @@
     border-radius: 50px;
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-right: 20px;
 }
 
 .navbar .button:hover{
@@ -55,6 +73,7 @@
 
 .navbar-search-icon{
     position: relative;
+    display: flex;
 }
 
 .navbar-search-icon .dot{
