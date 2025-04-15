@@ -6,7 +6,6 @@ import { StoreContext } from '../context/StoreContext';
 const FoodDisplay = ({ category }) => {
   const { food_list } = useContext(StoreContext);
 
-  // Filter food items based on the selected category
   const filteredFoodList =
     category === 'All'
       ? food_list

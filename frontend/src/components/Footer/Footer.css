@@ -15,6 +15,7 @@
     grid-template-columns: 2fr 1fr 1fr;
     gap: 80px;
   }
+  
   .footer-content-left,
   .footer-content-center,
   .footer-content-right {
@@ -23,6 +24,7 @@
     align-items: start;
     gap: 20px;
   }
+
   .footer-content-left li,
   .footer-content-center li,
   .footer-content-right li {
