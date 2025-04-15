@@ -1,5 +1,5 @@
 .header{
-    height: 36vw;
+    height: 42vw;
     margin-top: -50px;
     background: url('../../assets/header_img.jpg') no-repeat;
     background-size: cover;
@@ -17,7 +17,7 @@
     animation: fadeIn 3s;
 }
 .header-contents h2{
-    margin-bottom: 145px;
+    margin-bottom: 210px;
     font-weight: 500;
     color: rgb(255, 255, 255);
     font-size: max(4.5vw,22px);
