@@ -31,7 +31,7 @@ const Navbar = ({setShowLogin}) => {
             <div className={getTotalCartAmount()===0?"":"dot"}></div>
         </div>
         {!token ? (
-          <button onClick={() => setShowLogin(true)}>sign in</button>
+          <button onClick={() => setShowLogin(true)}>Sign in</button>
         ) : (
           <div className="navbar-profile">
             <img src={assets.profile_icon} alt="" />

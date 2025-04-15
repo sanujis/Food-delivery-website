@@ -3,10 +3,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: -85px;
 }
 
 .navbar .logo{
-    width: 150px;
+    width: 200px;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 200px;
 }
 
 .navbar-menu{
