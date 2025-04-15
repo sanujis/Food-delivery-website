@@ -43,7 +43,6 @@
   .footer-content-right li {
     list-style: none;
     margin-bottom: 10px;
-    cursor: pointer;
     margin-bottom: 30px;
   }
   
@@ -58,6 +57,7 @@
   .footer-content-right footer-social-icons img{
       width: 30px;
       margin-right: 10px;
+      cursor: pointer;
   }
   
   .footer hr{
