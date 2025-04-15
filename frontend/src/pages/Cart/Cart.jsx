@@ -1,7 +1,9 @@
-import React, {useContext} from 'react'
-import './Cart.css'
+import React, { useContext } from 'react';
+import './Cart.css';
 import { StoreContext } from '../../components/context/StoreContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
   const {
@@ -12,7 +14,18 @@ const Cart = () => {
     url,
   } = useContext(StoreContext);
 
-  const navigate=useNavigate();
+  const navigate = useNavigate();
+
+  const handleCheckout = () => {
+    if (getTotalCartAmount() > 0) {
+      navigate('/order'); // Navigate to the order page
+    } else {
+      toast.error('Your cart is empty. Please add items to proceed.', {
+        position: 'top-center',
+        autoClose: 3000, // Close after 3 seconds
+      });
+    }
+  };
 
   return (
     <div className="cart">
@@ -30,9 +43,9 @@ const Cart = () => {
         {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
-              <div>
+              <div key={index}>
                 <div className="cart-items-title cart-items-item">
-                  <img src={url+"/images/"+item.image} alt="" />
+                  <img src={url + '/images/' + item.image} alt="" />
                   <p>{item.name}</p>
                   <p>${item.price}</p>
                   <p>{cartItems[item._id]}</p>
@@ -45,6 +58,7 @@ const Cart = () => {
               </div>
             );
           }
+          return null;
         })}
       </div>
       <div className="cart-bottom">
@@ -58,7 +72,7 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>${getTotalCartAmount()===0?0:2}</p>
+              <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr />
             <div className="cart-total-details">
@@ -66,7 +80,7 @@ const Cart = () => {
               <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
             </div>
           </div>
-          <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+          <button onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
         </div>
         <div className="cart-promocode">
           <div>
@@ -79,6 +93,7 @@ const Cart = () => {
         </div>
       </div>
     </div>
-)}
+  );
+};
 
-export default Cart
+export default Cart;

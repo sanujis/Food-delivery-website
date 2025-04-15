@@ -87,7 +87,7 @@ const StoreContextProvider = (props) => {
   }, []);
 
   return (
-    <StoreContext.Provider value={{ cartItems, addToCart, removeFromCart, food_list, getTotalCartAmount, url , token, setToken }}>
+    <StoreContext.Provider value={{ cartItems, addToCart, removeFromCart, food_list, getTotalCartAmount, url , token, setToken, setCartItems}}>
       {props.children}
     </StoreContext.Provider>
   );
